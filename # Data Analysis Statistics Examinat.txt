@@ -357,10 +357,3 @@ stats.poisson.sf(3, 3)
 
 
 
-Completed
-
-**Data Analysis Statistics Examination – English Version**
-
-
-
-All answers are arranged section-wise with formulas, calculations, explanations and Python code for easy exam preparation.
