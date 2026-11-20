@@ -1,0 +1,90 @@
+###sampling and CLT
+
+
+1A) Identify the terms
+
+population=all 800students in the institute
+sample=80 randomly selected students
+N=800(population size)
+n=80(sample size)
+sample statistic=2.5hr(average daily practice time)
+
+2A)Identify the sampling technique
+
+a) Select 50 students randomly - Simple Random Sampling
+b) Select every twentieth student after a random start - Systematic Sampling
+c) Sample from every course in proportion to its size - Stratified Sampling
+d) Select three batches randomly and survey all their students - Cluster Sampling
+e) Survey students nearest the entrance - Convenience Sampling
+
+3A) Allocate a stratified sample
+
+total population=300+500+200=1000
+sample size=100
+formula=group population/total population x sample size
+
+DA:300/1000X100=30
+PFS:500/1000X100=50
+JFS:200/1000X100=20
+
+4A) Calculate SE
+
+Standard Error (SE) = sigma / route over n
+sigma = 20, n = 100, SE = 20 / route over 100 = 20/10 = 2
+b) Comparison = For n = 25:
+SE = 20 / route over 25 = 20/5 = 4
+For n = 100:
+Se = 20/route over 100 = 20/10 = SE = 2
+
+5A)Explain the CLTC 
+
+customer spending strongly right-skewed. When we take 
+sufficiently large independent 
+samples: Distribution of sample means becomes approximately
+ normality is centred around
+ population mean Standard Error
+ decreases Does individual
+ spending become normal?
+No. Individual spending remains right-skewed. 
+Conclusion: CLT makes sampling distribution of means normal,
+ not individual data.
+
+6A)Modify the simulation
+
+Replace sample_sizes with [2, 10, 50, 200]. 
+Keep exponential population
+ mean and SD equal to 10.
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+np.random.seed(42)
+sample_sizes = [2, 10, 50, 200]
+repetitions = 10000
+
+for n in sample_sizes:
+    sample_means = []
+    for i in range(repetitions):
+        data = np.random.exponential(scale=10, size=n)
+        sample_means.append(np.mean(data))
+    
+    simulated_se = np.std(sample_means)
+    theoretical_se = 10 / np.sqrt(n)
+    
+    print("Sample Size:", n)
+    print("Mean:", np.mean(sample_means))
+    print("Simulated SE:", simulated_se)
+    print("Theoretical SE:", theoretical_se)
+    
+    plt.hist(sample_means, bins=30)
+    plt.title(f"Sampling Distribution (n={n})")
+    plt.xlabel("Sample Means")
+    plt.ylabel("Frequency")
+    plt.show()
+
+7. Diagnose a sampling problem Problem: Selection Bias. Only highest-performing batch nunchi 500 students tees kundru. 
+Sample moth am population ni represent charade.
+ Improved Selection Process
+:All batches nunchi 
+randomly select cheval Different performance levels Unna students ni include cheval Stratified Random Sample invadable
+Conclusion: Representative random sample villa result more reliable ga untuned.
